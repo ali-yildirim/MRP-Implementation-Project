@@ -13,9 +13,9 @@ BEGIN
 
         update master_schedule as ms1, master_schedule as ms2, item i
 		set ms1.planned_order_receipts =  case 
-											when ms1.net_requirements = 0 then 0
-											else CEIL((ms1.net_requirements + ms2.projected_inventory) / (i.lot_size)) * i.lot_size
-										  end
+							when ms1.net_requirements = 0 then 0
+							else CEIL((ms1.net_requirements + ms2.projected_inventory) / (i.lot_size)) * i.lot_size
+						  end
 		where 1=1 
         and ms1.item_id = item_of_interest_id
 		and ms2.item_id = ms1.item_id
