@@ -24,9 +24,9 @@ BEGIN
             LEAVE item_loop;
         END IF;
 
-        -- Perform some operation with the current item_id
+                -- Update MRP table
 		call CalculateGR(current_item_id);
-        call UpdateInventory(current_item_id);
+        	call UpdateInventory(current_item_id);
 		call calculateNR(current_item_id);
 		call CalculatePlannedOrderReceipts(current_item_id);
 		call CalculatePlannedOrderReleases(current_item_id);
